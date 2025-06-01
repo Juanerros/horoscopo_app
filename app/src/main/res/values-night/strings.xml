@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tittle">Horoscopo</string>
+    <string name="btn_main">Ver Horoscopo</string>
+    <string name="txt_description">Descubre tu horoscopo de hoy</string>
+    <string name="select_Title">Selecciona tu signo</string>
+</resources>
