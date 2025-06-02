@@ -20,7 +20,7 @@
         android:id="@+id/textView3"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        android:text="@string/select_Title"
+        android:text="@string/select_title"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/_dynamic"
@@ -35,17 +35,38 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.30"></ExpandableListView>
+        app:layout_constraintVertical_bias="0.30"
+        android:groupIndicator="@null"
+        ></ExpandableListView>
+
+    <TextView
+        android:visibility="invisible"
+
+
+
+
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:text="Lorem Ipsium dolor sit amet, consectetur adipiscing elit."
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/_dynamic"></TextView>
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/materialButton"
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:text="@string/btn_look"
+        android:backgroundTint="@color/black"
         app:cornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="@+id/linearLayout2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/_dynamic"></com.google.android.material.button.MaterialButton>
+        app:layout_constraintTop_toBottomOf="@+id/_dynamic"
+        />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
