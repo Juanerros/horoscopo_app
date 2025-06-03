@@ -6,13 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".fragments.FirstFragment">
 
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:background="@drawable/background_gradient" />
-
     <View
         android:id="@+id/view"
         android:layout_width="0dp"

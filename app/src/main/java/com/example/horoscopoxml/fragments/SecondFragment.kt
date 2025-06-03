@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.horoscopoxml.R
 import com.example.horoscopoxml.data.horoscopoData
@@ -43,15 +42,27 @@ class SecondFragment : Fragment() {
 
         dropdown.setAdapter(adapter)
 
+        dropdown.setOnItemClickListener { parent, view, position, id ->
+            selectedSigno = parent.getItemAtPosition(position).toString()
+        }
+        
         val btnCalcular = root.findViewById<MaterialButton>(R.id.btnCalcular)
 
         btnCalcular.setOnClickListener {
-            val txtH = root.findViewById<TextView>(R.id.txtHoroscopo)
-            val posi = Random.nextInt(0, 13)
-            val newText = horoscopoData.listHoroscopo[posi]
-//            selectedSigno = dropdown.text.toString()
+            if(!selectedSigno.isNullOrEmpty()) {
+                dropdown.setText(selectedSigno, false)
 
-            txtH.text = newText
+
+                //esto
+
+
+                val txtH = root.findViewById<TextView>(R.id.txtHoroscopo)
+                val posi = Random.nextInt(0, 13)
+                val newText = horoscopoData.listHoroscopo[posi]
+                selectedSigno = dropdown.text.toString()
+                txtH.text = newText
+            } 
+
         }
         return root
     }

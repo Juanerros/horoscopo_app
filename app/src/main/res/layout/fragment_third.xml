@@ -5,18 +5,11 @@
     android:layout_height="match_parent"
     tools:context=".fragments.ThirdFragment">
 
-    <LinearLayout
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerSignos"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/background_gradient"
-        android:orientation="vertical">
+        android:padding="16dp"/>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerSignos"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="16dp"/>
-
-    </LinearLayout>
 
 </FrameLayout>
