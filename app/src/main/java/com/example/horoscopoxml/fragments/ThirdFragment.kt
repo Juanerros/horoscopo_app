@@ -6,7 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.horoscopoxml.R
+import com.example.horoscopoxml.data.SignosAdapter
 import com.google.android.material.button.MaterialButton
 
 class ThirdFragment : Fragment() {
@@ -16,11 +19,10 @@ class ThirdFragment : Fragment() {
     ): View? {
         val root = inflater.inflate(R.layout.fragment_third, container, false)
 
-//        val btnNav = root.findViewById<MaterialButton>(R.id.btnNav)
-//
-//        btnNav.setOnClickListener {
-//            findNavController().navigate(R.id.action_firstFragment_to_secondFragment)
-//        }
+        val recyclerView = root.findViewById<RecyclerView>(R.id.recyclerSignos)
+        recyclerView.layoutManager = LinearLayoutManager(context)
+        recyclerView.adapter = SignosAdapter.SignosAdapter()
+
         return root
     }
 }
