@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.horoscopoxml"
-        minSdk = 24
+        minSdk = 31
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
@@ -42,6 +42,8 @@ dependencies {
     val navVersion = "2.7.0"
     implementation("androidx.navigation:navigation-fragment-ktx:$navVersion")
     implementation("androidx.navigation:navigation-ui-ktx:$navVersion")
+
+    implementation("com.github.bumptech.glide:glide:4.16.0")
 
     implementation("androidx.recyclerview:recyclerview:1.3.2")
     implementation("com.google.android.material:material:1.6.0")
