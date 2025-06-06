@@ -57,16 +57,12 @@ class SecondFragment : Fragment(), SensorEventListener {
         return root
     }
 
-    override fun onStart() {
-        super.onStart()
-
-        handleList()
-    }
-
     private fun handleList() {
         val signos = signosData.listSignos
         val dropdown = root.findViewById<AutoCompleteTextView>(R.id.listSignos)
         val nameSignos = signos.map { it.name }
+
+        dropdown.setText("Seleccione su signo", false)
 
         val adapter = ArrayAdapter(
             requireContext(),
@@ -77,6 +73,10 @@ class SecondFragment : Fragment(), SensorEventListener {
         dropdown.setAdapter(adapter)
 
         dropdown.setOnItemClickListener { parent, _, position, _ ->
+            if(selectedSigno == parent.getItemAtPosition(position).toString()) return@setOnItemClickListener
+
+            val txtH = root.findViewById<TextView>(R.id.txtHoroscopo)
+            txtH.text = "Conoce tu horóscopo"
             selectedSigno = parent.getItemAtPosition(position).toString()
             ready = true
         }
@@ -113,15 +113,23 @@ class SecondFragment : Fragment(), SensorEventListener {
 
     override fun onResume() {
         super.onResume()
-        // Registra el listener del sensor
+        handleList()
+
         accelerometer?.let {
             sensorManager.registerListener(this, it, SensorManager.SENSOR_DELAY_NORMAL)
         }
     }
 
+    override fun onStop() {
+        super.onStop()
+
+        ready = false
+    }
+
     override fun onPause() {
         super.onPause()
-        // Detiene la detección para ahorrar batería
+        ready = false
+
         sensorManager.unregisterListener(this)
     }
 
