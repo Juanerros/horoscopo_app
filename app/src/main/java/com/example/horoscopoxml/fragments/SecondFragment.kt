@@ -45,11 +45,25 @@ class SecondFragment : Fragment(), SensorEventListener {
         accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
 
         val btnNav = root.findViewById<MaterialButton>(R.id.btnNav2)
-
         btnNav.setOnClickListener {
             findNavController().navigate(R.id.action_secondFragment_to_thirdFragment)
         }
 
+        val btnCalcular = root.findViewById<MaterialButton>(R.id.btnCalcular)
+        btnCalcular.setOnClickListener {
+            setHoroscopoText()
+        }
+
+        return root
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        handleList()
+    }
+
+    private fun handleList() {
         val signos = signosData.listSignos
         val dropdown = root.findViewById<AutoCompleteTextView>(R.id.listSignos)
         val nameSignos = signos.map { it.name }
@@ -66,14 +80,6 @@ class SecondFragment : Fragment(), SensorEventListener {
             selectedSigno = parent.getItemAtPosition(position).toString()
             ready = true
         }
-        
-        val btnCalcular = root.findViewById<MaterialButton>(R.id.btnCalcular)
-
-        btnCalcular.setOnClickListener {
-                setHoroscopoText()
-        }
-
-        return root
     }
 
     private fun vibratePhoneModern() {
